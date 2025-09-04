@@ -1,5 +1,6 @@
 # FATEC_4Bimestre
 
+npx expo init *nome do projeto*
 
 instalar - npm install -g expo-cli
 
