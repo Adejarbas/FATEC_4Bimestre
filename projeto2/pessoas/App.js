@@ -1,36 +1,46 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Text, Switch } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import Jobs from './components/Jobs';
+import { useState } from 'react';
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      status: false
-    };
+export default function App() {
+  const [nome, setNome] = useState("Sabor de Pastel");
+  
+  let img = 'https://sujeitoprogramador.com/steve.png';
+  
+  const handleMudar = () => {
+    setNome("Pastel de Costela com Catupiry");
   }
-
-  render(){
-    return (
-      <View style={styles.container}>
-        <Switch
-          value={this.state.status}
-          onValueChange={ (valorSwitch) => this.setState({status: valorSwitch}) }
-          thumbColor="#FF0000"
-        />
-
-        <Text style={{textAlign: 'center', fontSize: 30}}>
-          {this.state.status ? "Ativo" : "Inativo"}
-        </Text>
-      </View>
-    );
-  }
+  
+  return (
+    <View style={styles.container}>
+      <Text style={{ color: '#FF0000', fontSize: 85, margin: 15 }}>
+        Mobile
+      </Text>
+      
+      <Jobs 
+        img={img} 
+        largura={100} 
+        altura={200}
+        fonte={15} 
+        fulano="Lulinha Da Silva"
+      />
+      
+      <Text style={{ fontSize: 30 }}>
+        {nome}
+      </Text>
+      
+      <Button title="Entrar" onPress={handleMudar} />
+      <StatusBar style="auto" />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    marginTop:50
-  }
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
-
-export default App;
