@@ -12,11 +12,11 @@ export default function Texto({ children, style }) {
 
 const estilos = StyleSheet.create({
     texto: {
-        fontSize: 16,
-        lineHeight: 26,
-        color: "#464646",
+        fontFamily: "Arial",
+        fontWeight: "normal",
     },
     textoNegrito: {
+        fontFamily: "Arial",
         fontWeight: "bold",
     },
 });
